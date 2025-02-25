@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>Lurker Authentication Success</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a id="openApp" class="button" role="button">Open Lurker</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const openApp = document.getElementById('openApp');
+            
+            // Get all URL parameters
+            const currentUrl = window.location.href;
+            const url = new URL(currentUrl);
+            const queryParams = url.search;
+
+            // Create the deep link URL with the same query parameters
+            const deepLink = 'lurker://auth-success' + queryParams;
+            
+            // Set the href for the button
+            openApp.href = deepLink;
+
+            // Add touch event handling
+            openApp.addEventListener('touchstart', function(e) {
+                this.classList.add('touching');
+            }, false);
+
+            openApp.addEventListener('touchend', function(e) {
+                this.classList.remove('touching');
+            }, false);
+        });
+    </script>
+</body>
+</html> 
