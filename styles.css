@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #2d4a3e 0%, #8b7355 100%);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #e8f5e9;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: slideUpFade 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.line {
+    width: 0;
+    height: 2px;
+    background-color: #a5d6a7;
+    margin: 1rem auto;
+    animation: expandLine 1s ease-out 0.5s forwards;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes expandLine {
+    to {
+        width: 100px;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+} 
